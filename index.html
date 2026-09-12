@@ -14,6 +14,193 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/manrope@latest/700.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/manrope@latest/800.css">
 <style>
+
+/* ============ BEHANCE PORTFOLIO ============ */
+
+.behance-section{
+  position:relative;
+  overflow:hidden;
+}
+
+.behance-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:26px;
+  margin-top:56px;
+}
+
+.behance-card{
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  border-radius:var(--radius);
+  background:var(--glass-l);
+  border:1px solid var(--stroke-l);
+  box-shadow:0 18px 50px rgba(10,26,63,.1);
+  -webkit-backdrop-filter:blur(16px);
+  backdrop-filter:blur(16px);
+  transform-style:preserve-3d;
+  transition:
+    transform .45s var(--ease),
+    box-shadow .45s var(--ease),
+    border-color .35s;
+}
+
+.behance-card:hover{
+  box-shadow:0 28px 70px rgba(10,26,63,.18);
+  border-color:rgba(47,107,255,.3);
+}
+
+.behance-media{
+  position:relative;
+  overflow:hidden;
+  aspect-ratio:16/10;
+  background:#dce8ff;
+}
+
+.behance-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform 1s var(--ease);
+}
+
+.behance-card:hover .behance-media img{
+  transform:scale(1.07);
+}
+
+.behance-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(3,8,28,.42);
+  opacity:0;
+  transition:opacity .4s var(--ease);
+}
+
+.behance-card:hover .behance-overlay{
+  opacity:1;
+}
+
+.behance-view{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:11px 18px;
+  border-radius:999px;
+  background:#fff;
+  color:var(--ink);
+  font-size:.82rem;
+  font-weight:800;
+  transform:translateY(10px);
+  transition:transform .4s var(--ease);
+}
+
+.behance-card:hover .behance-view{
+  transform:translateY(0);
+}
+
+.behance-tag{
+  position:absolute;
+  top:16px;
+  left:16px;
+  z-index:2;
+  padding:7px 13px;
+  border-radius:999px;
+  background:rgba(3,8,28,.7);
+  -webkit-backdrop-filter:blur(8px);
+  backdrop-filter:blur(8px);
+  color:var(--mint-300);
+  font-size:.7rem;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.behance-body{
+  padding:24px 25px 26px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+  gap:11px;
+}
+
+.behance-body h3{
+  font-size:1.3rem;
+  font-weight:800;
+  line-height:1.2;
+}
+
+.behance-body p{
+  font-size:.9rem;
+  line-height:1.65;
+  color:var(--ink-soft);
+  font-weight:500;
+}
+
+.behance-chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:2px;
+}
+
+.behance-chips span{
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(47,107,255,.08);
+  color:var(--blue-600);
+  font-size:.68rem;
+  font-weight:700;
+}
+
+.behance-link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:auto;
+  padding-top:14px;
+  color:var(--blue-600);
+  font-size:.88rem;
+  font-weight:800;
+  transition:gap .3s var(--ease);
+}
+
+.behance-link:hover{
+  gap:14px;
+}
+
+.behance-footer{
+  display:flex;
+  justify-content:center;
+  margin-top:48px;
+}
+
+.behance-footer .btn{
+  min-width:190px;
+  justify-content:center;
+}
+
+/* Behance responsive */
+
+@media(max-width:1020px){
+  .behance-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:640px){
+  .behance-grid{
+    grid-template-columns:1fr;
+  }
+
+  .behance-body{
+    padding:22px;
+  }
+}
 /* ============ TOKENS ============ */
 :root{
   --navy-950:#03081c; --navy-900:#060f2e; --navy-800:#0b1d52; --navy-700:#16307c;
@@ -398,61 +585,383 @@ footer{padding:44px 0 34px;border-top:1px solid rgba(255,255,255,.08);color:rgba
   </div>
 </div>
 
-<!-- ============ WORK — RELEVANCE ============ -->
-<section id="work" class="zone-light">
+<!-- ============ BEHANCE PORTFOLIO ============ -->
+<section id="portfolio" class="zone-light behance-section">
   <div class="wrap">
+
     <div data-reveal>
-      <span class="sec-tag" data-scramble>01 · What I design</span>
-      <h2 class="sec-title">Three crafts. <em>One obsession.</em></h2>
-      <p class="sec-sub">Websites, apps and dashboards — designed to feel effortless, and built to be defended decision by decision. Pick the one that matches what you're building.</p>
+      <span class="sec-tag" data-scramble>02 · Selected work</span>
+      <h2 class="sec-title">Ideas turned into <em>interfaces.</em></h2>
+      <p class="sec-sub">
+        A selection of UI/UX projects I've designed across mobile apps,
+        websites, dashboards and digital products.
+      </p>
     </div>
-    <div class="work-grid">
-      <article class="card tilt work-card" data-reveal style="--d:.05s">
-        <div class="wc-media">
-          <span class="wc-tag">Web</span>
-          <img loading="lazy" src="https://image.qwenlm.ai/public_source/5b2c52eb-15f3-4d9e-9282-3e4ff2b77d58/1b532b49e-9f9d-4674-8ee3-9599607abe5e.png" alt="Website and landing page design">
+
+    <div class="behance-grid">
+
+      <!-- PROJECT 01 -->
+      <article class="behance-card tilt" data-reveal style="--d:.05s">
+        <div class="behance-media">
+          <span class="behance-tag">Mobile App</span>
+
+          <img
+            loading="lazy"
+            src="project1.jpg"
+            alt="HealthPulse healthcare mobile app UI/UX design"
+          >
+
+          <a
+            class="behance-overlay"
+            href="https://www.behance.net/gallery/254745415/Tectic-Banking-App-Dashboard-UI-Design"
+            target="_blank"
+            rel="noopener"
+            aria-label="View HealthPulse case study on Behance"
+          >
+            <span class="behance-view">
+              View Case Study →
+            </span>
+          </a>
         </div>
-        <div class="wc-body">
-          <h3>Websites & Landing Pages</h3>
-          <p>Marketing sites and landing pages that tell your story in one scroll — clear hierarchy, persuasive flow, zero template vibes.</p>
-          <div class="chips"><span>Landing pages</span><span>SaaS sites</span><span>Portfolios</span></div>
-          <a class="wc-link" href="mailto:hunzla2k07@gmail.com?subject=Website%20project%20inquiry">Quote a web project
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+
+        <div class="behance-body">
+          <h3>HealthPulse</h3>
+
+          <p>
+            A modern healthcare and self-care mobile experience
+            designed around simple daily routines.
+          </p>
+
+          <div class="behance-chips">
+            <span>UI/UX</span>
+            <span>Mobile App</span>
+            <span>Figma</span>
+          </div>
+
+          <a
+            class="behance-link"
+            href="YOUR_BEHANCE_LINK_1"
+            target="_blank"
+            rel="noopener"
+          >
+            View on Behance →
           </a>
         </div>
       </article>
-      <article class="card tilt work-card" data-reveal style="--d:.15s">
-        <div class="wc-media">
-          <span class="wc-tag">Product</span>
-          <img loading="lazy" src="https://image.qwenlm.ai/public_source/5b2c52eb-15f3-4d9e-9282-3e4ff2b77d58/1cdcef1cd-a573-4eaf-b2de-1abe61a4ae16.png" alt="Mobile app design">
+
+
+      <!-- PROJECT 02 -->
+      <article class="behance-card tilt" data-reveal style="--d:.10s">
+        <div class="behance-media">
+          <span class="behance-tag">AI Product</span>
+
+          <img
+            loading="lazy"
+            src="project2.png"
+            alt="AI Resume Builder UI/UX project"
+          >
+
+          <a
+            class="behance-overlay"
+            href="https://www.behance.net/gallery/254285161/Resumx-Ai-Resume-Builder-Ui-Landing-page-Design"
+            target="_blank"
+            rel="noopener"
+            aria-label="View AI Resume Builder case study on Behance"
+          >
+            <span class="behance-view">
+              View Case Study →
+            </span>
+          </a>
         </div>
-        <div class="wc-body">
-          <h3>Mobile App Design</h3>
-          <p>iOS & Android interfaces that feel native from the first tap — from habit trackers to health apps, wireframes to polished, dev-ready UI.</p>
-          <div class="chips"><span>iOS</span><span>Android</span><span>Prototypes</span></div>
-          <a class="wc-link" href="mailto:hunzla2k07@gmail.com?subject=Mobile%20app%20project%20inquiry">Quote an app project
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+
+        <div class="behance-body">
+          <h3>AI Resume Builder</h3>
+
+          <p>
+            An AI-powered resume creation experience focused on
+            making professional CV building faster and easier.
+          </p>
+
+          <div class="behance-chips">
+            <span>AI</span>
+            <span>Web App</span>
+            <span>UX Design</span>
+          </div>
+
+          <a
+            class="behance-link"
+            href="YOUR_BEHANCE_LINK_2"
+            target="_blank"
+            rel="noopener"
+          >
+            View on Behance →
           </a>
         </div>
       </article>
-      <article class="card tilt work-card" data-reveal style="--d:.25s">
-        <div class="wc-media">
-          <span class="wc-tag">Data</span>
-          <img loading="lazy" src="https://image.qwenlm.ai/public_source/5b2c52eb-15f3-4d9e-9282-3e4ff2b77d58/14ccd33c3-9a79-4759-b389-541c12d64ac1.png" alt="Dashboard and SaaS UI design">
+
+      <!-- PROJECT 04 -->
+      <article class="behance-card tilt" data-reveal style="--d:.20s">
+        <div class="behance-media">
+          <span class="behance-tag">Dashboard</span>
+
+          <img
+            loading="lazy"
+            src="project4.jpg"
+            alt="SaaS dashboard UI/UX design"
+          >
+
+          <a
+            class="behance-overlay"
+            href="YOUR_BEHANCE_LINK_4"
+            target="_blank"
+            rel="noopener"
+            aria-label="View SaaS dashboard case study on Behance"
+          >
+            <span class="behance-view">
+              View Case Study →
+            </span>
+          </a>
         </div>
-        <div class="wc-body">
-          <h3>Dashboards & SaaS UI</h3>
-          <p>Complex data, calmly organised. Admin panels and dashboards where every metric has a home and users always know what's next.</p>
-          <div class="chips"><span>Admin panels</span><span>Data viz</span><span>SaaS</span></div>
-          <a class="wc-link" href="mailto:hunzla2k07@gmail.com?subject=Dashboard%20project%20inquiry">Quote a dashboard
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+
+        <div class="behance-body">
+          <h3>SaaS Analytics Dashboard</h3>
+
+          <p>
+            A data-heavy dashboard designed to turn complex
+            information into clear and actionable insights.
+          </p>
+
+          <div class="behance-chips">
+            <span>Dashboard</span>
+            <span>Data Viz</span>
+            <span>SaaS</span>
+          </div>
+
+          <a
+            class="behance-link"
+            href="YOUR_BEHANCE_LINK_4"
+            target="_blank"
+            rel="noopener"
+          >
+            View on Behance →
           </a>
         </div>
       </article>
+
+
+      <!-- PROJECT 05 -->
+      <article class="behance-card tilt" data-reveal style="--d:.25s">
+        <div class="behance-media">
+          <span class="behance-tag">Healthcare</span>
+
+          <img
+            loading="lazy"
+            src="project5.jpg"
+            alt="Smart hospital appointment app UI UX"
+          >
+
+          <a
+            class="behance-overlay"
+            href="YOUR_BEHANCE_LINK_5"
+            target="_blank"
+            rel="noopener"
+            aria-label="View Smart Hospital case study on Behance"
+          >
+            <span class="behance-view">
+              View Case Study →
+            </span>
+          </a>
+        </div>
+
+        <div class="behance-body">
+          <h3>Smart Hospital</h3>
+
+          <p>
+            A streamlined hospital appointment experience connecting
+            patients with doctors through a simple mobile interface.
+          </p>
+
+          <div class="behance-chips">
+            <span>Healthcare</span>
+            <span>Mobile App</span>
+            <span>UX</span>
+          </div>
+
+          <a
+            class="behance-link"
+            href="YOUR_BEHANCE_LINK_5"
+            target="_blank"
+            rel="noopener"
+          >
+            View on Behance →
+          </a>
+        </div>
+      </article>
+
+
+      <!-- PROJECT 06 -->
+      <article class="behance-card tilt" data-reveal style="--d:.30s">
+        <div class="behance-media">
+          <span class="behance-tag">Fitness</span>
+
+          <img
+            loading="lazy"
+            src="project6.jpg"
+            alt="AI personal fitness coach mobile application"
+          >
+
+          <a
+            class="behance-overlay"
+            href="YOUR_BEHANCE_LINK_6"
+            target="_blank"
+            rel="noopener"
+            aria-label="View AI Personal Fitness Coach case study on Behance"
+          >
+            <span class="behance-view">
+              View Case Study →
+            </span>
+          </a>
+        </div>
+
+        <div class="behance-body">
+          <h3>AI Personal Fitness Coach</h3>
+
+          <p>
+            A personalized fitness application concept combining
+            intelligent coaching with a focused mobile experience.
+          </p>
+
+          <div class="behance-chips">
+            <span>AI</span>
+            <span>Fitness</span>
+            <span>App Design</span>
+          </div>
+
+          <a
+            class="behance-link"
+            href="YOUR_BEHANCE_LINK_6"
+            target="_blank"
+            rel="noopener"
+          >
+            View on Behance →
+          </a>
+        </div>
+      </article>
+
+      <!-- PROJECT 08 -->
+      <article class="behance-card tilt" data-reveal style="--d:.40s">
+        <div class="behance-media">
+          <span class="behance-tag">Web App</span>
+
+          <img
+            loading="lazy"
+            src="project8.jpg"
+            alt="Modern web application UI UX design"
+          >
+
+          <a
+            class="behance-overlay"
+            href="YOUR_BEHANCE_LINK_8"
+            target="_blank"
+            rel="noopener"
+            aria-label="View modern web app case study on Behance"
+          >
+            <span class="behance-view">
+              View Case Study →
+            </span>
+          </a>
+        </div>
+
+        <div class="behance-body">
+          <h3>Product Management Platform</h3>
+
+          <p>
+            A collaborative web application designed to help teams
+            organize projects, tasks and product workflows.
+          </p>
+
+          <div class="behance-chips">
+            <span>Web App</span>
+            <span>SaaS</span>
+            <span>Product Design</span>
+          </div>
+
+          <a
+            class="behance-link"
+            href="YOUR_BEHANCE_LINK_8"
+            target="_blank"
+            rel="noopener"
+          >
+            View on Behance →
+          </a>
+        </div>
+      </article>
+
+
+      <!-- PROJECT 09 -->
+      <article class="behance-card tilt" data-reveal style="--d:.45s">
+        <div class="behance-media">
+          <span class="behance-tag">Mobile UX</span>
+
+          <img
+            loading="lazy"
+            src="project9.jpg"
+            alt="Mobile application UI UX design project"
+          >
+
+          <a
+            class="behance-overlay"
+            href="YOUR_BEHANCE_LINK_9"
+            target="_blank"
+            rel="noopener"
+            aria-label="View mobile UX case study on Behance"
+          >
+            <span class="behance-view">
+              View Case Study →
+            </span>
+          </a>
+        </div>
+
+        <div class="behance-body">
+          <h3>Daily Routine App</h3>
+
+          <p>
+            A calm and intuitive mobile experience helping users
+            build healthier routines through simple daily interactions.
+          </p>
+
+          <div class="behance-chips">
+            <span>Mobile UX</span>
+            <span>UI Design</span>
+            <span>Figma</span>
+          </div>
+
+          <a
+            class="behance-link"
+            href="YOUR_BEHANCE_LINK_9"
+            target="_blank"
+            rel="noopener"
+          >
+            View on Behance →
+          </a>
+        </div>
+      </article>
+
     </div>
+
+    <div class="behance-footer" data-reveal>
+      <a
+        class="btn btn-solid magnetic"
+        href="YOUR_BEHANCE_PROFILE_LINK"
+        target="_blank"
+        rel="noopener"
+      >
+        Explore all projects →
+      </a>
+    </div>
+
   </div>
 </section>
-
 <!-- ============ SERVICES — OFFER CLARITY ============ -->
 <section id="services" class="zone-dark">
   <div class="wrap">
